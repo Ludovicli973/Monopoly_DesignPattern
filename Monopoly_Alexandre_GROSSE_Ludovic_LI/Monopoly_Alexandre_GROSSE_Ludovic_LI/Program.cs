@@ -10,6 +10,7 @@ namespace Monopoly_Alexandre_GROSSE_Ludovic_LI
     {
         static void Main(string[] args)
         {
+            
             Console.WriteLine("How many players are you ?");
             int nbPlayers;
 
@@ -21,9 +22,11 @@ namespace Monopoly_Alexandre_GROSSE_Ludovic_LI
                 correct = int.TryParse(Console.ReadLine(), out nbPlayers);
             }
 
-            for(int i=0;i<nbPlayers;i++)
+            List<Player> players = new List<Player>();
+            for (int i=1;i<=nbPlayers;i++)
             {
-                Console.WriteLine("T");
+                Console.WriteLine("Enter a name for player "+i+":");
+                players.Add(new Player(Console.ReadLine()));
             }
             Console.ReadKey();
         }
