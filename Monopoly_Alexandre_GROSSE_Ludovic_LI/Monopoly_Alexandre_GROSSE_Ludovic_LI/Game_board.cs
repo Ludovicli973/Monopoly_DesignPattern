@@ -26,12 +26,6 @@ namespace Monopoly_Alexandre_GROSSE_Ludovic_LI
             }
             return _instance;
         }
-        
-
-        public void AddPlayer(Player p)
-        {
-            players.Add(p);
-        }
 
         public override string ToString()
         {
