@@ -1,0 +1,46 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Monopoly_Alexandre_GROSSE_Ludovic_LI
+{
+    public sealed class Game_board
+    {
+        List<Player> players;
+        Dice dice;
+        private static Game_board _instance;
+
+        private Game_board(List<Player>players) 
+        {
+            this.players = players;
+            this.dice = new Dice();
+        }
+
+        public static Game_board GetInstance(List<Player> players)
+        {
+            if(_instance==null)
+            {
+                _instance = new Game_board(players);
+            }
+            return _instance;
+        }
+        
+
+        public void AddPlayer(Player p)
+        {
+            players.Add(p);
+        }
+
+        public override string ToString()
+        {
+            string msg = "Players :\n";
+            foreach (Player p in players)
+            {
+                msg += p+"\n";
+            }
+            return msg;
+        }
+    }
+}
