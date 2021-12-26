@@ -28,6 +28,7 @@ namespace Monopoly_Alexandre_GROSSE_Ludovic_LI
                 Console.WriteLine("Enter a name for player "+i+":");
                 players.Add(new Player(Console.ReadLine()));
             }
+            Game_board g = Game_board.GetInstance(players);
             Console.ReadKey();
         }
     }
