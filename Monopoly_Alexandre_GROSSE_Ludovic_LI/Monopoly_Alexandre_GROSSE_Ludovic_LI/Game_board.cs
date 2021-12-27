@@ -9,13 +9,13 @@ namespace Monopoly_Alexandre_GROSSE_Ludovic_LI
     public sealed class Game_board
     {
         List<Player> players;
-        Dice dice;
+        Dice _dice;
         private static Game_board _instance;
 
         private Game_board(List<Player>players) 
         {
             this.players = players;
-            this.dice = new Dice();
+            this._dice = new Dice();
         }
 
         public static Game_board GetInstance(List<Player> players)
