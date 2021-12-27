@@ -10,7 +10,7 @@ namespace Monopoly_Alexandre_GROSSE_Ludovic_LI
     {
         List<Player> players;
         Dice _dice;
-        private static Game_board _instance;
+        static Game_board _instance;
 
         private Game_board(List<Player>players) 
         {
