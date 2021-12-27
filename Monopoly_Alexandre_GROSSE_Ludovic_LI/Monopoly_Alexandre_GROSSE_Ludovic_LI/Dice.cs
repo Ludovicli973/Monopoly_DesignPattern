@@ -11,6 +11,7 @@ namespace Monopoly_Alexandre_GROSSE_Ludovic_LI
         int dice1;
         int dice2;
         int sumDice;
+        Random rnd = new Random();
 
         public Dice()
         {
@@ -53,7 +54,6 @@ namespace Monopoly_Alexandre_GROSSE_Ludovic_LI
 
         public void RollDice()
         {
-            Random rnd = new Random();
             dice1 = rnd.Next(1, 7);
             dice2 = rnd.Next(1, 7);
             sumDice = dice1 + dice2;
