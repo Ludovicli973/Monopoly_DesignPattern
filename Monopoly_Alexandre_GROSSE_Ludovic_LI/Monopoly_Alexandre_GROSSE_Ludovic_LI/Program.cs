@@ -10,13 +10,9 @@ namespace Monopoly_Alexandre_GROSSE_Ludovic_LI
     {
         static void Main(string[] args)
         {
-            Die d1 = new Die();
-            d1.RollDie();
-            Console.WriteLine(d1);
-            Die d2 = new Die();
-            d2.RollDie();
-            Console.WriteLine(d2);
-            Console.Write(d1 == d2);
+            Dice d = new Dice();
+            d.RollDice();
+            Console.WriteLine(d);
             Console.ReadKey();
         }
     }
