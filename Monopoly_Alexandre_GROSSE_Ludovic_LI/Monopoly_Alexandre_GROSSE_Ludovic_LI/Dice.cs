@@ -6,57 +6,47 @@ using System.Threading.Tasks;
 
 namespace Monopoly_Alexandre_GROSSE_Ludovic_LI
 {
-    class Dice
+    class Die
     {
-        int dice1;
-        int dice2;
-        int sumDice;
-        Random rnd = new Random();
+        int _die;
+        Random rnd;
 
-        public Dice()
+        public Die()
         {
-            dice1 = 1;
-            dice2 = 1;
-            sumDice = 2;
+            _die = 1;
+            rnd=new Random();
         }
 
         #region Getters and setters
 
-        public int Dice1
+        public int _Die
         {
-            get { return dice1; }
-            set { dice1 = value ; }
-        }
-
-        public int Dice2
-        {
-            get { return dice2 ; }
-            set { dice2 = value; }
-        }
-
-        public int SumDice
-        {
-            get { return sumDice ; }
-            set { sumDice = value ; }
+            get { return _die; }
+            set { _die = value ; }
         }
 
         #endregion
 
+        public static bool operator ==(Die 1,Die 2)
+        {
+            return true;
+        }
+
+        public static bool operator !=(Die 1,Die 2)
+        {
+            return true;
+        }
 
 
         public override string ToString()
         {
-            return "First dice : " + dice1 + 
-                "\nSecond dice : " + dice2 + 
-                "\nSum : " + sumDice;
+            return "Die :"+_die;
         }
 
 
         public void RollDice()
         {
-            dice1 = rnd.Next(1, 7);
-            dice2 = rnd.Next(1, 7);
-            sumDice = dice1 + dice2;
+            _die = rnd.Next(1, 7);
         }
     }
 }
