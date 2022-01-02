@@ -10,14 +10,20 @@ namespace Monopoly_Alexandre_GROSSE_Ludovic_LI
     {
         string name;
         int position;
-        bool inJail;
+        bool inJail;               
+        int doubleDice_count;       // Useful to know if the player has to go to jail
+        int notDoubleDice_count;    // Useful when the player is in jail and wants to get out
 
         public Player(string name)
         {
             this.name = name;
-            this.position = 0;
-            this.inJail = false;
+            position = 0;
+            inJail = false;
+            doubleDice_count = 0;
+            notDoubleDice_count = 0;
         }
+
+        #region Properties
 
         public string Name
         {
@@ -37,9 +43,61 @@ namespace Monopoly_Alexandre_GROSSE_Ludovic_LI
             set { inJail = value; }
         }
 
+        public int DoubleDice_count
+        {
+            get { return doubleDice_count; }
+            set { doubleDice_count = value; }
+        }
+
+        public int NotDoubleDice_count
+        {
+            get { return notDoubleDice_count; }
+            set { notDoubleDice_count = value; }
+        }
+
+        #endregion
+
         public override string ToString()
         {
-            return "Name : " + name + " Position : " + position + " In Jail : " + inJail;
+            return "Name : " + name + " | Position : " + position + " | In Jail : " + inJail + " | DoubleDice_count : " + doubleDice_count + " | NotDoubleDice_count : " + notDoubleDice_count;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return Equals(obj as Player);
+        }
+
+        public bool Equals(Player other)
+        {
+            if (other is null)
+            {
+                return false;
+            }
+            else
+            {
+                return this.GetHashCode() == other.GetHashCode();
+            }
+        }
+
+        public override int GetHashCode()
+        {
+            return name.GetHashCode();
+        }
+
+
+        public static bool operator ==(Player player1, Player player2)
+        {
+            if (player1 is null)
+            {
+                return player2 is null;
+            }
+
+            return player1.Equals(player2);
+        }
+
+        public static bool operator !=(Player player1, Player player2)
+        {
+            return !(player1 == player2);
         }
     }
 }

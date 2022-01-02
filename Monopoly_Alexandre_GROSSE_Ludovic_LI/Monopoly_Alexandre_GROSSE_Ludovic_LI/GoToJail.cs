@@ -6,15 +6,11 @@ using System.Threading.Tasks;
 
 namespace Monopoly_Alexandre_GROSSE_Ludovic_LI
 {
-    class Program
+    public class GoToJail
     {
-        static void Main(string[] args)
+        public bool GoToJailCheck(Player p)
         {
-            Random r = new Random();
-            //
 
-            // 
-            Console.ReadKey();
         }
     }
 }

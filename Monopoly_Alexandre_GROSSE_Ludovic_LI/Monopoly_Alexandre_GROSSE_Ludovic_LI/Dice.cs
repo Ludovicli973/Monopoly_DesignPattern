@@ -8,29 +8,35 @@ namespace Monopoly_Alexandre_GROSSE_Ludovic_LI
 {
     public class Dice
     {
-        int dice1;
-        int dice2;
+        int die1;
+        int die2;
         int sumDice;
-        Random rnd;
+        Random r=new Random();
 
         public Dice()
         {
-            this.dice1 = -1;
-            this.dice2 = -2;
-            this.sumDice = -3;
-            this.rnd = new Random();
+            die1 = -1;
+            die2 = -2;
+            sumDice = -3;
         }
 
-        public int Dice1
+        public Dice(int value1,int value2)
         {
-            get { return dice1; }
-            set { dice1 = value; }
+            this.die1 = value1;
+            this.die2 = value2;
+            this.sumDice = value1 + value2;
         }
 
-        public int Dice2
+        public int Die1
         {
-            get { return dice2; }
-            set { dice2 = value; }
+            get { return this.die1; }
+            set { this.die1 = value; }
+        }
+
+        public int Die2
+        {
+            get { return this.die2; }
+            set { this.die2 = value; }
         }
 
         public int SumDice
@@ -41,20 +47,19 @@ namespace Monopoly_Alexandre_GROSSE_Ludovic_LI
 
         public override string ToString()
         {
-            return "Die 1 : "+dice1+ " Die 2 : "+dice2+" Sum dice : "+sumDice;
+            return "First dice : " + die1 +"\nSecond dice : " + die2 +"\nSum : " + sumDice;
         }
-
 
         public void RollDice()
         {
-            dice1 = rnd.Next(1, 7);
-            dice2 = rnd.Next(1, 7);
-            sumDice = dice1 + dice2;
+            die1 = r.Next(1, 7);
+            die2 = r.Next(1, 7);
+            sumDice = die1 + die2;
         }
 
-        public bool DoubleDice()
+        public bool IsDoubleDice()
         {
-            return dice1 == dice2;
+            return die1 == die2;
         }
     }
 }

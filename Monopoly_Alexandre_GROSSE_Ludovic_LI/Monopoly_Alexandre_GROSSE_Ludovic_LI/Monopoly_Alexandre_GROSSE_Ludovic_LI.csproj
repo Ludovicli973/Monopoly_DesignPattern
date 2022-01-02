@@ -43,8 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Board_game.cs" />
     <Compile Include="Dice.cs" />
-    <Compile Include="Game_board.cs" />
+    <Compile Include="ExitJail.cs" />
+    <Compile Include="GoToJail.cs" />
+    <Compile Include="Move.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

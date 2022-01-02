@@ -6,58 +6,38 @@ using System.Threading.Tasks;
 
 namespace Monopoly_Alexandre_GROSSE_Ludovic_LI
 {
-    public sealed class Game_board
+    public sealed class Board_game
     {
-        List<Player> players;
-        Dice _dice;
-        static Game_board _instance;
-        bool end;
-        int turnNumber;
+        static Board_game _instance;
+        List<Player> players = new List<Player>();
+        Dice d = new Dice();
 
-        private Game_board()
+        private Board_game() 
         {
-            this.players = new List<Player>();
-            this._dice = new Dice();
-            this.end = false;
-            this.turnNumber = 1;
         }
 
-        public static Game_board GetInstance()
+        public static Board_game GetInstance()
         {
             if (_instance == null)
             {
-                _instance = new Game_board();
+                _instance = new Board_game();
             }
             return _instance;
         }
 
-        public override string ToString()
+        public bool AddPlayer(string playerName)
         {
-            string msg = "Players :\n";
-            foreach (Player p in players)
-            {
-                msg += p + "\n";
-            }
-            return msg;
-        }
-
-
-        // Adding a new player
-        // return true when the player is added, false when he isn't
-        public bool AddPlayer(string namePlayer)
-        {
-            Player newPlayer = new Player(namePlayer);
+            Player newPlayer = new Player(playerName);
+            bool playerAdded = false;
 
             if (!players.Contains(newPlayer))
             {
                 players.Add(newPlayer);
-                return true;
+                playerAdded = true;
             }
-            return false;
+            return playerAdded;
         }
 
-
-        // Initializing the players
         public void StartGame()
         {
             Console.WriteLine("Hello and welcome to the Monopoly 2.0 !\n");
@@ -85,14 +65,14 @@ namespace Monopoly_Alexandre_GROSSE_Ludovic_LI
             Console.WriteLine("Let's start the game !");
         }
 
-
         public void PlayingGame()
         {
-            while (!end)
+            int turnNumber = 1;
+            bool playAgain;
+            Move _move = new Move();
+            while (true)
             {
                 Console.WriteLine("\n\n\n######################## TURN N°" + turnNumber + " ########################");
-
-                bool playAgain;
 
                 foreach (Player p in players)
                 {
@@ -102,10 +82,9 @@ namespace Monopoly_Alexandre_GROSSE_Ludovic_LI
 
                     do
                     {
-                        _dice.RollDice();
-                        Console.WriteLine(_dice);
-
-                        playAgain = facade.Move(p, _dice);
+                        d.RollDice();
+                        Console.WriteLine(d);
+                        playAgain = _move.MovePlayer(p,d);
                         Console.WriteLine(p + "\n");
 
                         if (playAgain)
@@ -115,9 +94,7 @@ namespace Monopoly_Alexandre_GROSSE_Ludovic_LI
                         }
 
                     } while (playAgain);
-
                 }
-
                 turnNumber++;
             }
         }
