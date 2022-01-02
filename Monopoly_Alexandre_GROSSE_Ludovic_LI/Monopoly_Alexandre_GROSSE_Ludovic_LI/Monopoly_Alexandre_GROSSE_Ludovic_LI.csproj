@@ -46,7 +46,6 @@
     <Compile Include="Dice.cs" />
     <Compile Include="Game_board.cs" />
     <Compile Include="Player.cs" />
-    <Compile Include="PlayerFacade.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
