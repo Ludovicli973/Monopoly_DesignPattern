@@ -13,7 +13,7 @@ namespace Monopoly_Alexandre_GROSSE_Ludovic_LI
 
         public Die()
         {
-            _die = 1;
+            _die = 0;
         }
 
         public int _Die
@@ -46,22 +46,22 @@ namespace Monopoly_Alexandre_GROSSE_Ludovic_LI
 
         public static bool operator == (Die die1,Die die2)
         {
-            return true;
+            return die1.Equals(die2);
         }
 
         public static bool operator != (Die die1,Die die2)
         {
-            return true;
+            return !(die1==die2);
         }
 
 
         public override string ToString()
         {
-            return "Die :"+_die;
+            return "Die : "+_die;
         }
 
 
-        public void RollDice()
+        public void RollDie()
         {
             _die = rnd.Next(1, 7);
         }
