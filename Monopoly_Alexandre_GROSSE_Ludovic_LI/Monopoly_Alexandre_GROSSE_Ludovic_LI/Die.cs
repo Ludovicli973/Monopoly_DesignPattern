@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Monopoly_Alexandre_GROSSE_Ludovic_LI
 {
-    class Die
+    public class Die
     {
         int _die;
         Random rnd;
