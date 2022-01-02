@@ -9,11 +9,12 @@ namespace Monopoly_Alexandre_GROSSE_Ludovic_LI
     class Die
     {
         int _die;
-        Random rnd=new Random();
+        Random rnd;
 
         public Die()
         {
             _die = 0;
+            rnd = new Random();
         }
 
         public int _Die
