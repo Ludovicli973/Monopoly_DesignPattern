@@ -9,30 +9,47 @@ namespace Monopoly_Alexandre_GROSSE_Ludovic_LI
     class Die
     {
         int _die;
-        Random rnd;
+        Random rnd=new Random();
 
         public Die()
         {
             _die = 1;
-            rnd=new Random();
         }
-
-        #region Getters and setters
 
         public int _Die
         {
             get { return _die; }
-            set { _die = value ; }
+            set { _die = value; }
         }
 
-        #endregion
+        public override bool Equals(object obj)
+        {
+            return Equals(obj as Die);
+        }
 
-        public static bool operator ==(Die 1,Die 2)
+        public bool Equals(Die d)
+        {
+            if (d is null)
+            {
+                return false;
+            }
+            else
+            {
+                return this.GetHashCode() == d.GetHashCode();
+            }
+        }
+
+        public override int GetHashCode()
+        {
+            return _die.GetHashCode();
+        }
+
+        public static bool operator == (Die die1,Die die2)
         {
             return true;
         }
 
-        public static bool operator !=(Die 1,Die 2)
+        public static bool operator != (Die die1,Die die2)
         {
             return true;
         }
