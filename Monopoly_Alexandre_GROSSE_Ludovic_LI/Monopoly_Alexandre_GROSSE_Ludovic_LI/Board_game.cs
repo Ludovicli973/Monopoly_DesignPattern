@@ -27,7 +27,7 @@ namespace Monopoly_Alexandre_GROSSE_Ludovic_LI
 
         public bool AddPlayer(string playerName)
         {
-            Player newPlayer = new Player(playerName);
+            Player newPlayer = new Player(playerName.ToUpper());
             bool playerAdded = false;
 
             if (!players.Contains(newPlayer))
@@ -62,7 +62,8 @@ namespace Monopoly_Alexandre_GROSSE_Ludovic_LI
                 }
             }
 
-            Console.WriteLine("Let's start the game !");
+            Console.Clear();
+            Console.WriteLine("Let's start the game !\n");
         }
 
         public void PlayingGame()
@@ -72,12 +73,12 @@ namespace Monopoly_Alexandre_GROSSE_Ludovic_LI
             Facade_Player _facade = new Facade_Player();
             while (true)
             {
-                Console.WriteLine("\n\n\n######################## TURN N°" + turnNumber + " ########################");
+                Console.WriteLine("########################################## TURN N°" + turnNumber + " ##########################################\n");
 
                 foreach (Player p in players)
                 {
-                    Console.WriteLine(p.Name + ", you're at position " + p.Position);
-                    Console.WriteLine("It's your turn, press any key to roll the dice :");
+                    Console.WriteLine(p.Name + "\nCurrent position : " + p.Position);
+                    Console.WriteLine("It's your turn, press any key to roll the dice :\n");
                     Console.ReadKey();
 
                     do
@@ -85,17 +86,18 @@ namespace Monopoly_Alexandre_GROSSE_Ludovic_LI
                         d.RollDice();
                         Console.WriteLine(d);
                         playAgain = _facade.MakeMove(p,d);
-                        Console.WriteLine(p + "\n");
+                        Console.WriteLine("\n"+p.toStringPosition() + "\n");
 
                         if (playAgain)
                         {
-                            Console.WriteLine("You made a double ! Press any key to roll the dice again :");
+                            Console.WriteLine("You made a double ! Press any key to roll the dice again :\n");
                             Console.ReadKey();
                         }
 
                     } while (playAgain);
 
                     p.DoubleDice_count = 0;
+                    Console.WriteLine("_____________________________________________________________________________________________\n");
                 }
                 turnNumber++;
             }

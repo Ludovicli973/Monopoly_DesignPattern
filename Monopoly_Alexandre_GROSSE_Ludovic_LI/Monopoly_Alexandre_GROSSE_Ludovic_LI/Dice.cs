@@ -27,6 +27,8 @@ namespace Monopoly_Alexandre_GROSSE_Ludovic_LI
             this.sumDice = value1 + value2;
         }
 
+        #region Properties 
+
         public int Die1
         {
             get { return this.die1; }
@@ -45,9 +47,11 @@ namespace Monopoly_Alexandre_GROSSE_Ludovic_LI
             set { sumDice = value; }
         }
 
+        #endregion
+
         public override string ToString()
         {
-            return "First dice : " + die1 +"\nSecond dice : " + die2 +"\nSum : " + sumDice;
+            return "First die : " + die1 +" | Second die : " + die2 +"\nSum of the dice : " + sumDice;
         }
 
         public void RollDice()

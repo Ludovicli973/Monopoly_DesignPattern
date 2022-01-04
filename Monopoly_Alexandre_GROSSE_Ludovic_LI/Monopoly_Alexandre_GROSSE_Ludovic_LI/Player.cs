@@ -12,7 +12,7 @@ namespace Monopoly_Alexandre_GROSSE_Ludovic_LI
         int position;
         bool inJail;               
         int doubleDice_count;       // Useful to know if the player has to go to jail
-        int notDoubleDice_count;    // Useful when the player is in jail and wants to get out
+        int notDoubleDice_count;    // Useful when the player is in jail and tries to get out
 
         public Player(string name)
         {
@@ -62,6 +62,11 @@ namespace Monopoly_Alexandre_GROSSE_Ludovic_LI
             return "Name : " + name + " | Position : " + position + " | In Jail : " + inJail + " | DoubleDice_count : " + doubleDice_count + " | NotDoubleDice_count : " + notDoubleDice_count;
         }
 
+        public string toStringPosition()
+        {
+            return "New position : " + position + " | In Jail : " + inJail + " | DoubleDice_count : " + doubleDice_count + " | NotDoubleDice_count : " + notDoubleDice_count;
+        }
+
         public override bool Equals(object obj)
         {
             return Equals(obj as Player);
@@ -99,5 +104,7 @@ namespace Monopoly_Alexandre_GROSSE_Ludovic_LI
         {
             return !(player1 == player2);
         }
+
+        
     }
 }

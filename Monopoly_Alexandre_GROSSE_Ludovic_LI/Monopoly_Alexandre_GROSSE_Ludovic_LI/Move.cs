@@ -13,7 +13,6 @@ namespace Monopoly_Alexandre_GROSSE_Ludovic_LI
             bool canMoveNextTurn = d.IsDoubleDice();
             int tempPosition = p.Position;
             tempPosition += d.SumDice;
-
             if (tempPosition > 39)
             {
                 tempPosition -= 40;
