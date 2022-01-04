@@ -69,7 +69,7 @@ namespace Monopoly_Alexandre_GROSSE_Ludovic_LI
         {
             int turnNumber = 1;
             bool playAgain;
-            Move _move = new Move();
+            Facade_Player _facade = new Facade_Player();
             while (true)
             {
                 Console.WriteLine("\n\n\n######################## TURN N°" + turnNumber + " ########################");
@@ -84,7 +84,7 @@ namespace Monopoly_Alexandre_GROSSE_Ludovic_LI
                     {
                         d.RollDice();
                         Console.WriteLine(d);
-                        playAgain = _move.MovePlayer(p,d);
+                        playAgain = _facade.MakeMove(p,d);
                         Console.WriteLine(p + "\n");
 
                         if (playAgain)
@@ -94,6 +94,8 @@ namespace Monopoly_Alexandre_GROSSE_Ludovic_LI
                         }
 
                     } while (playAgain);
+
+                    p.DoubleDice_count = 0;
                 }
                 turnNumber++;
             }

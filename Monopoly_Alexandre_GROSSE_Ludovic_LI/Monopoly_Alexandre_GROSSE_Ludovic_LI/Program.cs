@@ -10,9 +10,9 @@ namespace Monopoly_Alexandre_GROSSE_Ludovic_LI
     {
         static void Main(string[] args)
         {
-            Random r = new Random();
-            //
-
+            Board_game game = Board_game.GetInstance();
+            game.StartGame();
+            game.PlayingGame();
             // 
             Console.ReadKey();
         }

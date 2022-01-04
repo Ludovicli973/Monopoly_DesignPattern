@@ -8,30 +8,25 @@ namespace Monopoly_Alexandre_GROSSE_Ludovic_LI
 {
     public class Move
     {
-        GoToJail _goToJail;
-        ExitJail _exitJail;
-
-        public Move()
+        public bool MovePlayer(Player p, Dice d)
         {
-            _goToJail = new GoToJail();
-            _exitJail = new ExitJail();
-        }
+            bool canMoveNextTurn = d.IsDoubleDice();
+            int tempPosition = p.Position;
+            tempPosition += d.SumDice;
 
-        public bool MovePlayer(Player player,Dice dice)
-        {
-            bool moved = false;
-            if(player.InJail)   // If the player is in jail, we try to free it
+            if (tempPosition > 39)
             {
-                moved=_exitJail.ExitJailCheck(player,dice);
+                tempPosition -= 40;
             }
-            else
+
+            if (tempPosition == 30)
             {
-                if(dice.IsDoubleDice())
-                {
-                    player.DoubleDice_count++;
-                }
+                GoToJail _goToJail = new GoToJail();
+                canMoveNextTurn = _goToJail.PlayerGoesToJail(p);
+                tempPosition = 10;
             }
-            return moved;
+            p.Position = tempPosition;
+            return canMoveNextTurn;
         }
     }
 }

@@ -46,6 +46,7 @@
     <Compile Include="Board_game.cs" />
     <Compile Include="Dice.cs" />
     <Compile Include="ExitJail.cs" />
+    <Compile Include="Facade_Player.cs" />
     <Compile Include="GoToJail.cs" />
     <Compile Include="Move.cs" />
     <Compile Include="Player.cs" />
